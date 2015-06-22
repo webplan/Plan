@@ -15,7 +15,7 @@ public class Login {
         HashMap<String, String> params = new HashMap<String, String>();
         params.put(Config.KEY_ACCOUNT, account);
         params.put(Config.KEY_PASSWORD_MD5, password_md5);
-        String actionURL = Config.SERVER_URL + Config.ACCTION_LOGIN + Config.SERVER_ACTION_SUFFIX;
+        String actionURL = Config.SERVER_URL + Config.ACTION_LOGIN + Config.SERVER_ACTION_SUFFIX;
         new NetConnection(actionURL, HttpMethod.POST, new NetConnection.SuccessCallBack() {
             @Override
             public void onSuccess(String result) {

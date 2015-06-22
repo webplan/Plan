@@ -37,7 +37,7 @@ public class UploadContacts {
                                     friend = array.getJSONObject(i);
                                     friends.add(new UserEntity(friend.getString(Config.KEY_ACCOUNT),
                                             friend.getString(Config.KEY_NICKNAME),
-                                            friend.getString(Config.KEY_AVATAR_URL)));
+                                            friend.getString(Config.KEY_AVATAG)));
                                 }
                                 successCallback.onSuccess(friends);
                             }

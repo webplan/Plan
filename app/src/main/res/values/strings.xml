@@ -1,10 +1,11 @@
 <resources>
-    <string name="app_name">Plan</string>
+    <string name="app_name">活动</string>
 
 
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section3">邀请</string>
+    <string name="title_section4">好友</string>
 
     <string name="hello_world">Hello world!</string>
 
@@ -18,8 +19,8 @@
     <string name="fail_to_login">登录失败</string>
     <string name="connecting">正在连接</string>
     <string name="login_now">正在登录</string>
-    <string name="nickname">昵称</string>
-    <string name="confirm_password">确认密码</string>
+    <string name="nickname">昵称：</string>
+    <string name="confirm_password">确认密码：</string>
     <string name="register">注册</string>
 
     <string name="please_complete_above_info">请将以上信息补充完整</string>
@@ -30,4 +31,44 @@
     <string name="please_waite">请稍候</string>
     <string name="loading_failed">加载失败</string>
     <string name="invalid_token_please_login_again">token过期，请重新登录</string>
+    <string name="please_enter_nickname">请输入用户昵称</string>
+    <string name="phone_num">手机号：</string>
+    <string name="friend">好友</string>
+    <string name="event">活动</string>
+    <string name="title">标题</string>
+    <string name="enter_event_title">输入活动标题</string>
+    <string name="enter_event_info">输入活动简介</string>
+    <string name="info">简介</string>
+    <string name="user_info">用户详情</string>
+    <string name="publish_event">发布活动</string>
+    <string name="date">日期</string>
+    <string name="time">时间</string>
+    <string name="location">地点</string>
+    <string name="selected_friends_num">已选好友数</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="start_event">发起活动</string>
+    <string name="add_friend">添加好友</string>
+    <string name="please_enter_event_title">请输入活动标题</string>
+    <string name="please_enter_event_info">请输入活动简介</string>
+    <string name="please_add_event_time">请添加活动时间</string>
+    <string name="please_add_event_location">请添加活动地点</string>
+    <string name="please_select_friends_to_invite">请选择想要邀请的好友</string>
+    <string name="now_posting">发布中</string>
+    <string name="sign_up_ddl">报名截止日期</string>
+    <string name="post_success">发布成功</string>
+    <string name="post_failed">发布失败</string>
+    <string name="add">添加</string>
+    <string name="search_user">用户搜索</string>
+    <string name="select_friend">选择好友</string>
+    <string name="invited_members">已邀请成员</string>
+    <string name="please_select_suitable_time">请选择合适的时间</string>
+    <string name="please_select_suitable_location">请选择合适的地点</string>
+    <string name="attention">注意</string>
+    <string name="you_have_not_selected_time_or_location_continue_to_reject_this_event">您没有选择时间或地点，若继续则视为不参加此活动，是否继续？</string>
+    <string name="repeat_success">回复成功</string>
+    <string name="repeat_failed">回复失败</string>
+    <string name="now_repeating">正在回复</string>
+    <string name="duplicate_title_and_info">标题简介均重复</string>
+    <string name="event_plan">活动计划</string>
+    <string name="repeat">回复</string>
 </resources>

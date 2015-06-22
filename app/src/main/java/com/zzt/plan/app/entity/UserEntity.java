@@ -1,9 +1,11 @@
 package com.zzt.plan.app.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by zzt on 15-6-16.
  */
-public class UserEntity {
+public class UserEntity implements Serializable {
     private String account;
     private String nickname;
     private String avatarURL;

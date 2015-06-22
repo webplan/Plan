@@ -19,7 +19,7 @@ public class Register {
         params.put(Config.KEY_PASSWORD_MD5, password_md5);
         params.put(Config.KEY_NICKNAME, nickname);
         params.put(Config.KEY_PHONE, phone);
-        params.put(Config.KEY_AVATAR, ImageUtil.Bitmap2StrByBase64(avatar));
+        params.put(Config.KEY_AVATAG, ImageUtil.Bitmap2StrByBase64(avatar));
         String actionURL = Config.SERVER_URL + Config.ACTION_REGISTER + Config.SERVER_ACTION_SUFFIX;
         new NetConnection(actionURL, HttpMethod.POST, new NetConnection.SuccessCallBack() {
             @Override

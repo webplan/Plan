@@ -1,5 +1,6 @@
 package com.zzt.plan.app.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +11,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.*;
 import com.zzt.plan.app.R;
+import com.zzt.plan.app.fragment.FriendsFragment;
+import com.zzt.plan.app.fragment.InvitedEventsFragment;
 
 import java.util.Locale;
 
@@ -84,8 +87,14 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_add_friend:
+                startActivity(new Intent(this, SearchUserActivity.class));
+                return true;
+            case R.id.action_start_event:
+                startActivity(new Intent(this, StartEventActivity.class));
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -150,13 +159,26 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
+
+            switch (position) {
+                case 0:
+
+                    break;
+                case 1:
+
+                    break;
+                case 2:
+                    return new InvitedEventsFragment();
+                case 3:
+                    return new FriendsFragment();
+            }
+
             return PlaceholderFragment.newInstance(position + 1);
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            return 4;
         }
 
         @Override
@@ -169,6 +191,9 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                     return getString(R.string.title_section2).toUpperCase(l);
                 case 2:
                     return getString(R.string.title_section3).toUpperCase(l);
+                case 3:
+                    return getString(R.string.title_section4).toUpperCase();
+
             }
             return null;
         }

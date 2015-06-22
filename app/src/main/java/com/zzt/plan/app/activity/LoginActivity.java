@@ -26,8 +26,8 @@ public class LoginActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        etAccount = (EditText) findViewById(R.id.etAccount);
-        etPassword = (EditText) findViewById(R.id.etPassword);
+        etAccount = (EditText) findViewById(R.id.et_account);
+        etPassword = (EditText) findViewById(R.id.et_password);
 
         findViewById(R.id.btnLogin).setOnClickListener(new View.OnClickListener() {
             @Override
