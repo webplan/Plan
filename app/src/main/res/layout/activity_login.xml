@@ -26,6 +26,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:singleLine="true"
                     android:id="@+id/et_account"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -47,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:singleLine="true"
+                    android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:id="@+id/et_password"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 

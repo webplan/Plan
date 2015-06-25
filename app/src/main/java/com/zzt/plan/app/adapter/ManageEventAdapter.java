@@ -10,8 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.zzt.plan.app.Config;
 import com.zzt.plan.app.R;
-import com.zzt.plan.app.activity.JoinedEventDetailActivity;
-import com.zzt.plan.app.entity.EventEntity;
+import com.zzt.plan.app.activity.ManageEventDetailActivity;
+import com.zzt.plan.app.entity.EventBaseInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,32 +19,32 @@ import java.util.List;
 /**
  * Created by zzt on 15-6-23.
  */
-public class JoinedEvenAdapter extends BaseAdapter {
+public class ManageEventAdapter extends BaseAdapter {
     private Context context;
-    private List<EventEntity> joinedEvents = new ArrayList<>();
+    private List<EventBaseInfo> events = new ArrayList<>();
 
-    public JoinedEvenAdapter(Context context) {
+    public ManageEventAdapter(Context context) {
         this.context = context;
     }
 
-    public void addAll(List<EventEntity> joinedEvents) {
-        this.joinedEvents.addAll(joinedEvents);
+    public void addAll(List<EventBaseInfo> events) {
+        this.events.addAll(events);
         notifyDataSetChanged();
     }
 
     public void clear() {
-        joinedEvents.clear();
+        events.clear();
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return joinedEvents.size();
+        return events.size();
     }
 
     @Override
-    public EventEntity getItem(int position) {
-        return joinedEvents.get(position);
+    public EventBaseInfo getItem(int position) {
+        return events.get(position);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class JoinedEvenAdapter extends BaseAdapter {
             convertView.setTag(holder);
         }
         holder = (ViewHolder) convertView.getTag();
-        final EventEntity event = getItem(position);
+        final EventBaseInfo event = getItem(position);
 
         holder.tvTitle.setText(event.getTitle());
         holder.tvInfo.setText(event.getInfo());
@@ -73,7 +73,7 @@ public class JoinedEvenAdapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, JoinedEventDetailActivity.class);
+                Intent i = new Intent(context, ManageEventDetailActivity.class);
                 Bundle data = new Bundle();
                 data.putSerializable(Config.KEY_EVENT, event);
                 i.putExtra(Config.KEY_EVENT, data);
@@ -87,4 +87,5 @@ public class JoinedEvenAdapter extends BaseAdapter {
         TextView tvTitle;
         TextView tvInfo;
     }
+
 }

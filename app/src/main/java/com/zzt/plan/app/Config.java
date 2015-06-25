@@ -8,7 +8,7 @@ import android.content.SharedPreferences;
  */
 public class Config {
     public static final String CHARSET = "UTF-8";
-    public static final String SERVER_URL = "http://192.168.1.107:8080/";
+    public static final String SERVER_URL = "http://175.186.106.26:8080/";
     public static final String SERVER_ACTION_SUFFIX = ".action";
     public static final String APP_ID = "com.zzt.plan";
 
@@ -43,6 +43,9 @@ public class Config {
     public static final String KEY_LONGITUDE = "lon";
     public static final String KEY_EVENT_PLAN = "event_plan";
     public static final String KEY_PLAN_ID = "plan_id";
+    public static final String KEY_EVENT = "event";
+    public static final String KEY_PLAN_LIST = "plan_list";
+    public static final String KEY_NAME = "name";
 
     public static final String ACTION_REGISTER = "register";
     public static final String ACTION_LOGIN = "login";
@@ -56,11 +59,18 @@ public class Config {
     public static final String ACTION_START_EVENT = "start";
     public static final String ACTION_USER_INFO = "user_info";
     public static final String ACTION_RETURN_PLAN = "return_plan";
+    public static final String ACTION_GET_USERS_EVENT = "get_users_event";
+    public static final String ACTION_VIEW_STAT = "view_stat";
+    public static final String ACTION_CONFIRM_PLAN = "confirm_plan";
+    public static final String ACTION_GET_POSITION = "get_position";
 
     public static final int RESULT_STATUS_SUCCESS = 1;
     public static final int RESULT_STATUS_FAIL = 0;
     public static final int RESULT_STATUS_INVALID_TOKEN = 2;
     public static final int RESULT_STATUS_DUPLICATE_KEY = 3;
+    public static final int RESULT_STATUS_INVALID_CONFIRM_TIME = 3;
+    public static final int CODE_CHOOSE = 0;
+    public static final String ACTION_UPLOAD_POSITION = "set_position";
 
     public static String getCachedToken(Context context) {
         return context.getSharedPreferences(APP_ID, Context.MODE_PRIVATE).getString(KEY_TOKEN, null);

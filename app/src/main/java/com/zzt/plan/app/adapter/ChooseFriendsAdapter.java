@@ -99,7 +99,6 @@ public class ChooseFriendsAdapter extends BaseAdapter {
                         notifyDataSetChanged();
                     }
                 });
-
                 break;
         }
 

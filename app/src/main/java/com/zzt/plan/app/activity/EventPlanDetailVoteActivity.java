@@ -80,7 +80,7 @@ public class EventPlanDetailVoteActivity extends ActionBarActivity {
 
         tvTitle.setText(eventPlan.getTitle());
         tvInfo.setText(eventPlan.getInfo());
-        tvDdl.setText(new SimpleDateFormat("yyyy-MM-dd hh:mm", Locale.CHINA).format(eventPlan.getDdl()));
+        tvDdl.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA).format(eventPlan.getDdl()));
     }
 
     @Override

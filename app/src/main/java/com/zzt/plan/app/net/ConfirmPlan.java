@@ -1,6 +1,7 @@
 package com.zzt.plan.app.net;
 
 import com.zzt.plan.app.Config;
+import com.zzt.plan.app.entity.LocationEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -8,32 +9,41 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by zzt on 15-6-16.
+ * Created by zzt on 15-6-23.
  */
-public class AddFriend {
-    public AddFriend(String account, String token, String friendAccount, final SuccessCallback successCallback, final FailCallback failCallback) {
+public class ConfirmPlan {
+    public ConfirmPlan(String account, String token, int planID, long time, LocationEntity location, final SuccessCallback successCallback, final FailCallback failCallback) {
         Map<String, String> params = new HashMap<>();
         params.put(Config.KEY_ACCOUNT, account);
         params.put(Config.KEY_TOKEN, token);
-        params.put(Config.KEY_FRIEND_ACCOUNT, friendAccount);
+        params.put(Config.KEY_PLAN_ID, String.valueOf(planID));
+        params.put(Config.KEY_TIME, String.valueOf(time));
+        JSONObject JSONLocation = new JSONObject();
+        try {
+            JSONLocation.put(Config.KEY_LOCATION, location.getName());
+            JSONLocation.put(Config.KEY_LATITUDE, location.getLatitude());
+            JSONLocation.put(Config.KEY_LONGITUDE, location.getLongitude());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        params.put(Config.KEY_LOCATION, JSONLocation.toString());
 
-        String actionURL = Config.SERVER_URL + Config.ACTION_ADD_FRIEND + Config.SERVER_ACTION_SUFFIX;
+        String actionURL = Config.SERVER_URL + Config.ACTION_CONFIRM_PLAN + Config.SERVER_ACTION_SUFFIX;
 
         new NetConnection(actionURL, HttpMethod.POST, new NetConnection.SuccessCallBack() {
             @Override
             public void onSuccess(String result) {
                 try {
-                    JSONObject obj = new JSONObject(result);
-                    switch (obj.getInt(Config.KEY_STATUS)) {
+                    JSONObject object = new JSONObject(result);
+                    int status = object.getInt(Config.KEY_STATUS);
+                    switch (status) {
                         case Config.RESULT_STATUS_SUCCESS:
-                            if (successCallback != null) {
+                            if (successCallback != null)
                                 successCallback.onSuccess();
-                            }
                             break;
                         default:
                             if (failCallback != null)
-                                failCallback.onFail(obj.getInt(Config.KEY_STATUS));
-
+                                failCallback.onFail(status);
                     }
                 } catch (JSONException e) {
                     if (failCallback != null)

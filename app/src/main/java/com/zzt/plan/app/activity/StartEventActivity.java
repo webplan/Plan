@@ -129,7 +129,7 @@ public class StartEventActivity extends ActionBarActivity {
                                 ddlCalendar.set(Calendar.SECOND, 0);
                                 ddlCalendar.set(Calendar.MILLISECOND, 0);
 
-                                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm", Locale.CHINA);
+                                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA);
                                 String ddlStr = format.format(ddlCalendar.getTime());
                                 tvDdl.setText(ddlStr);
                             }
@@ -150,9 +150,9 @@ public class StartEventActivity extends ActionBarActivity {
         btnAddLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LocationEntity location = chooseLocation();
-                locationList.add(location);
-                locationsAdapter.notifyDataSetChanged();
+                Intent i = new Intent(StartEventActivity.this, LocationActivity.class);
+                i.setAction("choose");
+                startActivityForResult(i, Config.CODE_CHOOSE);
             }
         });
 
@@ -211,7 +211,7 @@ public class StartEventActivity extends ActionBarActivity {
 
         EventPlanEntity eventPlan = new EventPlanEntity();
         eventPlan.setTitle(etTitle.getText().toString());
-        eventPlan.setInfo(etTitle.getText().toString());
+        eventPlan.setInfo(etInfo.getText().toString());
         eventPlan.setDdl(ddlCalendar.getTimeInMillis());
         for (Calendar calendar : timeList) {
             eventPlan.addTime(calendar);
@@ -257,14 +257,6 @@ public class StartEventActivity extends ActionBarActivity {
         });
     }
 
-    private LocationEntity chooseLocation() {
-        LocationEntity result = new LocationEntity();
-        result.setName("temp");
-        result.setLatitude(12.01);
-        result.setLongitude(15.02);
-        return result;
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1 && resultCode == 1) {
@@ -273,6 +265,13 @@ public class StartEventActivity extends ActionBarActivity {
                 memberList.add(getUserByAccount(selectedFriendAccount));
             }
             membersAdapter.notifyDataSetChanged();
+        } else if (requestCode == Config.CODE_CHOOSE && resultCode == RESULT_OK) {
+            LocationEntity location = new LocationEntity();
+            location.setName(data.getStringExtra(Config.KEY_NAME));
+            location.setLatitude(data.getDoubleExtra(Config.KEY_LATITUDE, 0));
+            location.setLongitude(data.getDoubleExtra(Config.KEY_LONGITUDE, 0));
+            locationList.add(location);
+            locationsAdapter.notifyDataSetChanged();
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

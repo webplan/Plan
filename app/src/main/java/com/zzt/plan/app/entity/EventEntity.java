@@ -1,10 +1,5 @@
 package com.zzt.plan.app.entity;
 
-import com.zzt.plan.app.Config;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -48,19 +43,7 @@ public class EventEntity implements Serializable {
         return location;
     }
 
-    public JSONArray getMemberList() {
-        JSONArray array = new JSONArray();
-        for (UserEntity member : memberList) {
-            try {
-                JSONObject object = new JSONObject();
-                object.put(Config.KEY_ACCOUNT, member.getAccount());
-                object.put(Config.KEY_NICKNAME, member.getNickname());
-                object.put(Config.KEY_AVATAG, member.getAvatarURL());
-                array.put(object);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        return array;
+    public List<UserEntity> getMemberList() {
+        return memberList;
     }
 }

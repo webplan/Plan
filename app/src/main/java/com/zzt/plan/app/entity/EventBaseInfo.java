@@ -1,9 +1,11 @@
 package com.zzt.plan.app.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by zzt on 15-6-23.
  */
-public class EventBaseInfo {
+public class EventBaseInfo implements Serializable {
     private int eventID;
     private String title;
     private String info;

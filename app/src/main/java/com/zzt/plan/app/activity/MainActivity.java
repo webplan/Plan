@@ -13,6 +13,8 @@ import android.view.*;
 import com.zzt.plan.app.R;
 import com.zzt.plan.app.fragment.FriendsFragment;
 import com.zzt.plan.app.fragment.InvitedEventsFragment;
+import com.zzt.plan.app.fragment.JoinedEventFragment;
+import com.zzt.plan.app.fragment.ManageEventsFragment;
 
 import java.util.Locale;
 
@@ -162,11 +164,9 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
             switch (position) {
                 case 0:
-
-                    break;
+                    return new JoinedEventFragment();
                 case 1:
-
-                    break;
+                    return new ManageEventsFragment();
                 case 2:
                     return new InvitedEventsFragment();
                 case 3:

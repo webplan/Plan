@@ -98,7 +98,7 @@ public class ChooseTimesAdapter extends BaseAdapter {
 
         final Calendar calendar = getItem(position);
 
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm", Locale.CHINA);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA);
         String timeStr = format.format(calendar.getTime());
 
         holder.tvTime.setText(timeStr);

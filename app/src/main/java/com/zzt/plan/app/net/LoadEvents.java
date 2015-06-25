@@ -53,7 +53,7 @@ public class LoadEvents {
                                     JSONArray JSONUsers = JSONEvent.getJSONArray(Config.KEY_PERSON);
                                     JSONObject JSONUser;
                                     for (int j = 0; j < JSONUsers.length(); j++) {
-                                        JSONUser = JSONUsers.getJSONObject(i);
+                                        JSONUser = JSONUsers.getJSONObject(j);
                                         userList.add(new UserEntity(JSONUser.getString(Config.KEY_ACCOUNT),
                                                 JSONUser.getString(Config.KEY_NICKNAME),
                                                 JSONUser.getString(Config.KEY_AVATAG)));
@@ -69,6 +69,7 @@ public class LoadEvents {
                                 failCallback.onFail(status);
                     }
                 } catch (JSONException e) {
+                    e.printStackTrace();
                     if (failCallback != null)
                         failCallback.onFail();
                 }

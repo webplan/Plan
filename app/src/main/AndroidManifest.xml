@@ -2,17 +2,43 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.zzt.plan.app">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
+    </uses-permission>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS">
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_LOGS">
+    </uses-permission>
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
+        <service
+                android:name="com.baidu.location.f"
+                android:enabled="true"
+                android:process=":remote">
+        </service>
+
+
+        <meta-data
+                android:name="com.baidu.lbsapi.API_KEY"
+                android:value="xNG77QQIt3BArcK0eptQIbeQ" />
+
         <activity
                 android:name=".EntryActivity"
                 android:label="@string/app_name">
@@ -40,12 +66,20 @@
         </activity>
         <activity
                 android:name=".activity.SearchUserActivity"
-                android:label="@string/search_user">
+                android:label="@string/search_user"
+                android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.MainActivity" />
 
         </activity>
         <activity
                 android:name=".activity.SelectFriendsActivity"
-                android:label="@string/select_friend">
+                android:label="@string/select_friend"
+                android:parentActivityName=".activity.StartEventActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.StartEventActivity" />
 
         </activity>
         <activity
@@ -59,7 +93,23 @@
         </activity>
         <activity
                 android:name=".activity.EventPlanDetailVoteActivity"
-                android:label="@string/event_plan">
+                android:label="@string/event_plan"
+                android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.MainActivity" />
+
+        </activity>
+        <activity android:name=".activity.ManageEventDetailActivity">
+
+        </activity>
+        <activity android:name=".activity.JoinedEventDetailActivity">
+
+        </activity>
+        <activity android:name=".activity.LocationActivity">
+
+        </activity>
+        <activity android:name=".activity.MapActivity">
 
         </activity>
     </application>

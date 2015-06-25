@@ -8,16 +8,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by zzt on 15-6-16.
+ * Created by zzt on 15-6-23.
  */
-public class AddFriend {
-    public AddFriend(String account, String token, String friendAccount, final SuccessCallback successCallback, final FailCallback failCallback) {
+public class UploadPosition {
+    public UploadPosition(String account, String token, double lat, double lon, final SuccessCallback successCallback, final FailCallback failCallback) {
         Map<String, String> params = new HashMap<>();
         params.put(Config.KEY_ACCOUNT, account);
         params.put(Config.KEY_TOKEN, token);
-        params.put(Config.KEY_FRIEND_ACCOUNT, friendAccount);
+        params.put(Config.KEY_LATITUDE, String.valueOf(lat));
+        params.put(Config.KEY_LONGITUDE, String.valueOf(lon));
 
-        String actionURL = Config.SERVER_URL + Config.ACTION_ADD_FRIEND + Config.SERVER_ACTION_SUFFIX;
+        String actionURL = Config.SERVER_URL + Config.ACTION_UPLOAD_POSITION + Config.SERVER_ACTION_SUFFIX;
 
         new NetConnection(actionURL, HttpMethod.POST, new NetConnection.SuccessCallBack() {
             @Override

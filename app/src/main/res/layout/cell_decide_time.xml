@@ -12,17 +12,14 @@
             android:textSize="20sp"
             android:id="@+id/tv_time" />
 
-    <CheckBox
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cb_item"
-            android:visibility="gone" />
+            android:textSize="10sp"
+            android:id="@+id/tv_num" />
 
-    <ImageButton
-            android:layout_width="30dp"
+    <RadioButton
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_delete"
-            android:id="@+id/btn_delete" />
-
-
+            android:id="@+id/rb_item" />
 </LinearLayout>

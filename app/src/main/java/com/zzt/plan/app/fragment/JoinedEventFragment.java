@@ -27,6 +27,9 @@ public class JoinedEventFragment extends LazyFragment {
     private ListView lvEvents;
     private JoinedEvenAdapter adapter;
 
+    public JoinedEventFragment() {
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_events, null);
@@ -36,22 +39,28 @@ public class JoinedEventFragment extends LazyFragment {
 
         lvEvents = (ListView) rootView.findViewById(R.id.lv_events);
         adapter = new JoinedEvenAdapter(getActivity());
+        lvEvents.setAdapter(adapter);
         isPrepared = true;
         return rootView;
     }
 
     @Override
     protected void lazyLoad() {
+        if (isPrepared && isVisible) {
+            view();
+        } else return;
 
     }
 
-    private void viewStat() {
+    private void view() {
         final ProgressDialog pd = ProgressDialog.show(getActivity(), getString(R.string.now_loading), getString(R.string.please_waite));
 
         new LoadEvents(account, token, new LoadEvents.SuccessCallback() {
             @Override
             public void onSuccess(List<EventEntity> friends) {
-
+                pd.dismiss();
+                adapter.clear();
+                adapter.addAll(friends);
             }
         }, new LoadEvents.FailCallback() {
             @Override
